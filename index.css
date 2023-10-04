@@ -1,0 +1,254 @@
+*{
+   margin: 0;
+   padding: 0; 
+   box-sizing: border-box;
+}
+
+.background{
+width: 100%;
+height: 650px;
+background-image: url(./background\ img\ black.webp);
+background-repeat: no-repeat;
+background-size: cover;
+padding: 60px;
+}
+.nav{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.nav-left{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    color: white;
+}
+.nav-left h3{
+    margin-top: 20px;
+    font-style: italic;
+    margin-left: 20px;
+}
+.nav-right{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#logoimg{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.text{
+    width: 45%;
+    height: auto;
+    color: white;
+    margin-top: 100px;
+}
+hr{
+    width: 40%;
+    margin-top: 15px;
+}
+.text-2{
+    width: 40%;
+    height: auto;
+    color: white;
+    margin-top: 150px;
+    font-size: small;
+}
+#pp{
+    font-size: medium;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+button{
+    margin-top: 25px;
+    height: auto;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:  #31e46a;
+    color: white;
+}
+button:hover{
+background-color:   rgb(85, 124, 8);
+}
+
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.foot{
+    color: white;
+    margin-top: 40px;
+    text-align: right;
+}
+
+ .errormsg{ 
+    font-style: italic;
+    color: red;
+}
+form{
+    width: 400px;
+    margin: auto;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type='text'],
+input[type='date'],      
+input[type='tel'],
+input[type="month"],
+input[type='time'],
+input[type='email'],
+select {
+    width: 60%;
+    height: 40px;
+    margin-bottom: 5px;
+}
+#note{
+  width: 60%;
+  height: 70px;
+}
+#head{
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+button[type='submit'] {
+    padding: 10px 20px;
+    background-color: #31e46a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  html {
+    font-size: 80%;
+  }
+  
+  .container {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-wrapper {
+    width: 1100px;
+    height: 800px;
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .banner {
+    position: absolute;
+    top: 25%;
+    left: -30rem;
+    text-align: center;
+    color: #fff;
+    width: 30rem;
+    z-index: 100;
+    transition: left 0.8s;
+  }
+
+  .container.change .banner {
+    left: 40px;
+  }
+
+  .banner h1 {
+    font-size: 60px;
+    margin-bottom: 48px;
+  }
+  
+  .banner p {
+    font-size: 20px;
+  }
+  
+  .green-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #3ab19b, #4cbf91);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .container.change .green-bg {
+    width: 40%;
+  }
+  
+  .green-bg button {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 60px;
+    background-color: transparent;
+    border: 0.6px solid #fff;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .form {
+    width: 600px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 65px 0px;
+    transition: left 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .container.change .form {
+    left: 460px;
+  }
+  
+  .form h1 {
+    font-size: 40px;
+    color: #3aaf9f;
+  }
+  
+
+#mine{
+  border: px solid black;
+  width: 10px;
+  height: 30px;
+}
+
+#userSummary {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}

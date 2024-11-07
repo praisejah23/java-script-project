@@ -5,92 +5,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
     <link rel="stylesheet" href="index.css">
-    <title>Book an appointment</title>
 </head>
 
 <body>
-
-
     <div class="container">
-        <div class="form-wrapper">
-            <div class="banner">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details </p>
+        <form class="form">
+            <h1 id="head">Appointment Scheduling</h1>
+
+            <div class="input-holder">
+                <div>
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name">
+                    <p id="fullNameErr" class="error-message"></p>
+                </div>
+                <div>
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
+                    <p id="phoneNumberErr" class="error-message"></p>
+                </div>
             </div>
-            <div class="green-bg">
-                <button type="button">Sign Up</button>
+
+            <div class="input-holder">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <p id="emailErr" class="error-message"></p>
+                </div>
+                <div>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" placeholder="Enter your address">
+                    <p id="addressErr" class="error-message"></p>
+                </div>
             </div>
 
+            <div class="input-holder">
+                <div>
+                    <label for="purpose">Consultation Purpose:</label>
+                    <select id="purpose">
+                        <option value="">Select</option>
+                        <option value="career">Career</option>
+                        <option value="growth">Growth</option>
+                        <option value="change">Change of profession</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <p id="purposeErr" class="error-message"></p>
+                </div>
+                <div>
+                    <label for="date">Appointment Date:</label>
+                    <input type="date" id="date">
+                    <p id="dateErr" class="error-message"></p>
+                </div>
+            </div>
 
-            <form class="form">
+            <div class="input-holder">
+                <div>
+                    <label for="time">Appointment Time:</label>
+                    <select id="time">
+                        <option value="">Select time</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                    </select>
+                    <p id="timeErr" class="error-message"></p>
+                </div>
+                <div>
+                    <label for="counselor">Counselor:</label>
+                    <select id="counselor">
+                        <option value="">Select counselor</option>
+                        <option value="Bethel">Bethel</option>
+                        <option value="Justice">Justice</option>
+                        <option value="Jahswill">Jahswill</option>
+                    </select>
+                    <p id="counselorErr" class="error-message"></p>
+                </div>
+            </div>
 
-                <h1 id="head">Appointment Scheduling</h1>
+            <div>
+                <label for="note">Additional Explanation:</label>
+                <textarea id="note" placeholder="Any additional details..."></textarea>
+                <p id="noteErr" class="error-message"></p>
+            </div>
 
-                <label for="fullName">Full name:</label>
-                <input type="text" id="fullName" value="">
-                <p id="fullNameErr"></p>
-
-                <label for="phoneNumber">Phone number:</label>
-                <input type="tel" id="phoneNumber" value="">
-                <p id="phoneNumberErr"></p>
-
-                <label for="email">Enter Email:</label>
-                <input type="email" id="email" value="">
-                <p id="emailErr"></p>
-
-                <label for="address">Address:</label>
-                <input type="text" id="address" value="">
-                <p id="addressErr"></p>
-
-                <label for="purpose">Consultation Purpose:</label>
-                <select name="" id="purpose">
-                    <option value="">Select</option>
-                    <option value="carrer">Career</option>
-                    <option value="Growth">Growth</option>
-                    <option value="Change of profession">Change of profession</option>
-                    <option value="Others">Others</option>
-                </select>
-                <p id="purposeErr"></p>
-
-                <label for="date"> Appointment Date:</label>
-                <input type="date" id="date" value="">
-                <p id="dateErr"></p>
-
-                <label for="time">Appointment time:</label>
-                <select name="" id="time">
-                    <option value="">select</option>
-                    <option value="9:00 AM">9:00 AM</option>
-                    <option value="11:00 AM">12:00 pM</option>
-                    <option value="2:00 PM">2:00 PM</option>
-                    <option value="4:00 PM">4:00 PM</option>
-                </select>
-                <p id="timeErr"></p>
-
-                <label for="counselor">Counselor</label>
-                <select name="" id="counselor">
-                    <option value="">select</option>
-                    <option value="Bethel">Bethel</option>
-                    <option value="Justice">Justice</option>
-                    <option value="Jahswill">Jahswill</option>
-                </select>
-                <p id="counselorErr"></p>
-
-
-
-                <label for="note">Additional explanation:</label>
-                <textarea id="note"></textarea>
-                <p id="noteErr"></p>
-
-                <button type="submit">Shedule Appointment</button>
-            </form>
-
-        </div>
+            <button type="submit">Schedule Appointment</button>
+        </form>
     </div>
-
-    <div id="userSummary"></div>
-
-    <script src="index.js"></script>
 </body>
-
+<script src="index.js"></script>
 </html>

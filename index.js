@@ -30,19 +30,18 @@ let counselorSlotCount = {
   "Jahswill": 0,
 };
 
-
 // Get form elements
 let form = document.querySelector('.form');
- fullNameInput = document.getElementById('fullName');
- phoneNumberInput = document.getElementById('phoneNumber');
- emailInput = document.getElementById('email');
- addressInput = document.getElementById('address');
- purposeInput = document.getElementById('purpose');
- dateInput = document.getElementById('date');
- timeInput = document.getElementById('time');
- noteInput = document.getElementById('note');
- counselorInput = document.getElementById('counselor');
-
+let fullNameInput = document.getElementById('fullName');
+let phoneNumberInput = document.getElementById('phoneNumber');
+let emailInput = document.getElementById('email');
+let addressInput = document.getElementById('address');
+let purposeInput = document.getElementById('purpose');
+let dateInput = document.getElementById('date');
+let timeInput = document.getElementById('time');
+let noteInput = document.getElementById('note');
+let counselorInput = document.getElementById('counselor');
+let userSummary = document.getElementById('userSummary');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -105,88 +104,83 @@ function validateForm() {
     return false;
   }
 
-// Check counselor availability
-let selectedDate = new Date(date.value);
-let selectedDay = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
-let selectedTime = time.value;
-let selectedCounselor = counselor.value;
+  // Check if the selected day is within Monday to Friday
+  let selectedDate = new Date(dateInput.value);
+  let selectedDay = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+  let selectedTime = timeInput.value;
+  let selectedCounselor = counselorInput.value;
 
-let availableSlots = counselorAvailability[selectedCounselor][selectedDay];
-if (!availableSlots.includes(selectedTime)) {
-  timeErr.innerHTML = 'The selected time is not available for the chosen counselor.';
-  timeErr.classList.add('errormsg');
-  return false;
+  // List of valid days for counseling sessions
+  const validDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  // Check if the selected day is within Monday to Friday
+  if (!validDays.includes(selectedDay)) {
+    dateErr.innerHTML = 'Sessions can only be booked from Monday to Friday. Please choose a valid date.';
+    dateErr.classList.add('errormsg');
+    return false;
+  }
+
+  // Check counselor availability on the selected day and time
+  let availableSlots = counselorAvailability[selectedCounselor][selectedDay];
+  if (!availableSlots || !availableSlots.includes(selectedTime)) {
+    timeErr.innerHTML = 'The selected time is not available for the chosen counselor.';
+    timeErr.classList.add('errormsg');
+    return false;
+  }
+
+  // Check counselor slot assignment count
+  if (counselorSlotCount[selectedCounselor] >= 3) {
+    counselorErr.innerHTML = 'The chosen counselor has already been assigned the maximum number of slots.';
+    counselorErr.classList.add('errormsg');
+    return false;
+  }
+
+  // Update slot assignment count
+  counselorSlotCount[selectedCounselor]++;
+
+  // Retrieve and display the user inputs
+  let summaryHTML = `<h2>APOINTMENT DETAILS</h2>
+    <p>Fullname: ${fullNameInput.value}</p>
+    <p>Phone Number: ${phoneNumberInput.value}</p>
+    <p>Email: ${emailInput.value}</p>
+    <p>Address: ${addressInput.value}</p>
+    <p>Purpose: ${purposeInput.value}</p>
+    <p>Date: ${dateInput.value}</p>
+    <p>Time: ${timeInput.value}</p>
+    <p>Counselor: ${counselorInput.value}</p>`;
+
+  userSummary.innerHTML = summaryHTML;
+  console.log('Appointment scheduled!');
+  alert("Appointment Booked!")
 }
-
-// Check counselor slot assignment count
-if (counselorSlotCount[selectedCounselor] >= 3) {
-  counselorErr.innerHTML = 'The chosen counselor has already been assigned the maximum number of slots.';
-  counselorErr.classList.add('errormsg');
-  return false;
-}
-
-// Update slot assignment count
-counselorSlotCount[selectedCounselor]++;
-
-
- // Retrieve the values entered by the user
-var fullNameValue = fullNameInput.value;
-var phoneNumberValue = phoneNumberInput.value;
-var emailValue = emailInput.value;
-var addressValue = addressInput.value;
-var purposeValue = purposeInput.value;
-var dateValue = dateInput.value;
-var timeValue = timeInput.value;
-var counselorValue = counselorInput.value;
-var noteValue = noteInput.value;
-
-// Display the user inputs
-var summaryHTML = `<h2>User Summary</h2>
-   <p>Fullname: ${fullNameValue}</p>
-   <p>Phone Number: ${phoneNumberValue}</p>
-   <p>Email: ${emailValue}</p>
-   <p>Address: ${addressValue}</p>
-   <p>Purpose: ${purposeValue}</p>
-   <p>Date: ${dateValue}</p>
-   <p>Time: ${timeValue}</p>
-   <p>Counselor: ${counselorValue}</p>`;
-
-   userSummary.innerHTML = summaryHTML;
-
-console.log('Appointment scheduled!');
-
-}
-
 
 function removeErr() {
-  fullName.onfocus = () => {
+  fullNameInput.onfocus = () => {
     fullNameErr.innerHTML = '';
   };
-  phoneNumber.onfocus = () => {
+  phoneNumberInput.onfocus = () => {
     phoneNumberErr.innerHTML = '';
   };
-  purpose.onfocus = () => {
+  purposeInput.onfocus = () => {
     purposeErr.innerHTML = '';
   };
-  email.onfocus = () => {
+  emailInput.onfocus = () => {
     emailErr.innerHTML = '';
   };
-  address.onfocus = () => {
+  addressInput.onfocus = () => {
     addressErr.innerHTML = '';
   };
-  date.onfocus = () => {
+  dateInput.onfocus = () => {
     dateErr.innerHTML = '';
   };
 
-  time.onfocus = () => {
+  timeInput.onfocus = () => {
     timeErr.innerHTML = '';
   };
 
-  note.onfocus = () => {
+  noteInput.onfocus = () => {
     noteErr.innerHTML = '';
   };
-
 }
-removeErr();
 
-  
+removeErr();
